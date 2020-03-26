@@ -14,7 +14,7 @@ public class Main {
             System.out.println("input error; pls try again");
             return ("");
         }
-        return "" + tmp[0].charAt(0) + tmp[1].charAt(0) + tmp[2].charAt(0) + " " + findAge(tmp[3]);
+        return "" + tmp[1].charAt(0) + "." + tmp[2].charAt(0) + "." + tmp[0] + " " + findAge(tmp[3]) + " years old";
     }
 
     public static int findAge(String birthdate) {
@@ -38,6 +38,7 @@ public class Main {
         in.close();
 
         // String input = "Saratovtsev Artem Romanovich 01.09.2000";
+        // A.R.Saratovtsev 19 years old
 
         String res = findFioAge(input);
         System.out.println(res);
