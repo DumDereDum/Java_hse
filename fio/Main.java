@@ -14,7 +14,14 @@ public class Main {
             System.out.println("input error; pls try again");
             return ("");
         }
-        return "" + tmp[1].charAt(0) + "." + tmp[2].charAt(0) + "." + tmp[0] + " " + findAge(tmp[3]) + " years old";
+        String res = "" + tmp[0] + " " + tmp[1].charAt(0) + "." + tmp[2].charAt(0) + ". " + findAge(tmp[3]) + " years old";
+        if (tmp[0].charAt(tmp[0].length()-1) == 'a') {
+            res += " | female |";
+        }
+        else {
+            res += " | male |";
+        }
+        return res;
     }
 
     public static int findAge(String birthdate) {
@@ -32,13 +39,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in);
-        System.out.print("Input an information: ");
-        String input = in.nextLine();
-        in.close();
+        //Scanner in = new Scanner(System.in);
+        //System.out.print("Input an information: ");
+        //String input = in.nextLine();
+        //in.close();
 
-        // String input = "Saratovtsev Artem Romanovich 01.09.2000";
-        // A.R.Saratovtsev 19 years old
+         String input = "Saratovtsev Artem Romanovich 01.09.2000";
+        // Saratovtsev A.R. 19 years old | male |
 
         String res = findFioAge(input);
         System.out.println(res);
