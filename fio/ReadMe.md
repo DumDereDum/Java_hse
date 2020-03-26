@@ -3,4 +3,4 @@
 ### Ввод: 
   Saratovtsev Artem Romanovich 01.09.2000
 ### Вывод:
-  A.R.Saratovtsev 19 years old
+  Saratovtsev A.R. 19 years old | male |
