@@ -37,7 +37,7 @@ public class Main {
         String input = in.nextLine();
         in.close();
 
-        // String input = "Saratovtsev Artem Romanovich 01.09.2200";
+        // String input = "Saratovtsev Artem Romanovich 01.09.2000";
 
         String res = findFioAge(input);
         System.out.println(res);
