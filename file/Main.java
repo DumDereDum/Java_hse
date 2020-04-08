@@ -1,7 +1,10 @@
+
 package com.company;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
@@ -61,15 +64,20 @@ public class Main {
     }
 
     public static void printFrequency(HashMap<String, Integer> frequency) {
-        for (String name: frequency.keySet()){
-            String key = name.toString();
-            String value = frequency.get(name).toString();
-            System.out.println(key + " - " + value);
+        try(FileWriter writer = new FileWriter("frequency.txt", false)) {
+            for (String name: frequency.keySet()){
+                String key = name.toString();
+                String value = frequency.get(name).toString();
+                System.out.println(key + " - " + value);
+                writer.write(key + " - " + value + '\n');
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
-	    //String test = "a a a b b c d d d d";
+        //String test = "a a a b b c d d d d";
         String test = readFile("test.txt");
         countWordsAndPrintFrecuency(test);
     }
