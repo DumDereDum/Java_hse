@@ -1,8 +1,12 @@
+package com.company;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
-public class MainMain {
+public class Main {
 
     public static String readFile(String filename) {
         try {
@@ -61,10 +65,15 @@ public class MainMain {
     }
 
     public static void printFrequency(HashMap<Character, Integer> frequency) {
-        for (Character name: frequency.keySet()){
-            String key = name.toString();
-            String value = frequency.get(name).toString();
-            System.out.println(key + " - " + value);
+        try(FileWriter writer = new FileWriter("frequency.txt", false)) {
+            for (Character name: frequency.keySet()){
+                String key = name.toString();
+                String value = frequency.get(name).toString();
+                System.out.println(key + " - " + value);
+                writer.write(key + " - " + value + '\n');
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
