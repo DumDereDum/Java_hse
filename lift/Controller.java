@@ -11,17 +11,9 @@ public class Controller{
         }
     }
 
-    public void call(int id, int flore) {
+    public void call(int id, Passenger passenger) {
         if (this.elevators.get(id) != null) {
-            this.elevators.get(id).call(flore);
-        } else {
-            System.out.println("Error, the id is invalid");
-        }
-    }
-
-    public void move(int id, int flore) {
-        if (this.elevators.get(id) != null) {
-            this.elevators.get(id).move(flore);
+            this.elevators.get(id).call(passenger);
         } else {
             System.out.println("Error, the id is invalid");
         }
@@ -32,6 +24,14 @@ public class Controller{
         {
             pair.getValue().start();
             System.out.println("Elevator " + pair.getKey() + " ON");
+        }
+    }
+
+    public void off() {
+        for (Map.Entry<Integer, Elevator> pair: this.elevators.entrySet())
+        {
+            pair.getValue().interrupt();
+            System.out.println("Elevator " + pair.getKey() + " OFF");
         }
     }
 }
